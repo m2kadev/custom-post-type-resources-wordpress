@@ -56,9 +56,10 @@
         $('#filterResources').delegate('#resourcesPagination a', 'click', function (e) {
             e.preventDefault();
             var link = $(this).attr('href');
+            var dLink = link.replace('#038;', '&');
 
             $('#filterResources').fadeOut('400', function() {
-                $(this).load(link , function (res) {
+                $(this).load(dLink , function (res) {
                     $('.filter-field').html(res);
                     $('.filter-field').fadeIn('400');
                 });

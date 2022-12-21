@@ -12,8 +12,7 @@ function load_scripts()
 
 add_action('wp_enqueue_scripts', 'load_scripts');
 
-
-function filter_resources_test() {
+function filter_resources() {
 
     $category = !empty($_POST['category']) ? $_POST['category'] : '*';
     $order = !empty($_POST['order']) ? $_POST['order'] : 'title';
@@ -87,7 +86,7 @@ function filter_resources_test() {
 
     if ($total_pages > 1) {
 
-        $big = 999999999;
+        $big = 99999999;
 
         $pagination = array(
             'base' => str_replace($big, '%#%', get_pagenum_link($big)),
@@ -118,8 +117,8 @@ function filter_resources_test() {
 }
 
 
-add_action('wp_ajax_filter', 'filter_resources_test'); // wp_ajax_{action}
-add_action('wp_ajax_nopriv_filter', 'filter_resources_test'); // wp_ajax_nopriv_{action}
+add_action('wp_ajax_filter', 'filter_resources'); // wp_ajax_{action}
+add_action('wp_ajax_nopriv_filter', 'filter_resources'); // wp_ajax_nopriv_{action}
 
 
 ?>
